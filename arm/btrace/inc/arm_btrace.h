@@ -106,7 +106,8 @@ extern int btrace_callstack( TraceCallbackFnPtr callback_fn, int maxFrames );
 
 typedef int (*TracePrintFnPtr)(char* message);
 
-extern int btrace_set_print_fn( TracePrintFnPtr print_fn, int maxFrames ) __attribute__ ((noinline));
+/*returns existing TracePrintFnPtr or NULL*/
+extern TracePrintFnPtr btrace_set_print_fn( TracePrintFnPtr print_fn, int maxFrames ) __attribute__ ((noinline));
 
 extern void exceptionHandlerReturnHook(void) __attribute__ ((naked));
 

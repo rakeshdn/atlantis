@@ -41,10 +41,12 @@ extern void exceptionTraceCallstack(void) __attribute__ ((noinline));
 
 bt_stackframe_t* get_frame_ptr() { return Exception_StackFrame_Ptr; }
 
-int btrace_set_print_fn(TracePrintFnPtr print_fn,int maxFrames)
+TracePrintFnPtr btrace_set_print_fn(TracePrintFnPtr print_fn,int maxFrames)
 {
+	TracePrintFnPtr oldPrintFn = trace_print_fn;
 	trace_print_fn = print_fn;
 	max_frames = maxFrames;
+	return oldPrintFn;
 }
 
 /*count the number of registers in register list in the opcode*/

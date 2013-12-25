@@ -79,7 +79,7 @@ extern "C" {
 #define OPCODE_R6_BIT      0x00000040
 #define OPCODE_R7_BIT      0x00000080
 #define OPCODE_R8_BIT      0x00000100
-#define OPCODE_R9_BIT      0x00000200// SB_BIT
+#define OPCODE_R9_BIT      0x00000200  /*SB_BIT*/
 #define OPCODE_SL_BIT      0x00000400
 #define OPCODE_FP_BIT      0x00000800
 #define OPCODE_IP_BIT      0x00001000

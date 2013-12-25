@@ -29,12 +29,22 @@
  *
  * Change to directory btrace and run GNU make.
  *
+ * makefile expects to find an environment variable named ARM_TOOL_PATH
+ * that holds the path to location of your arm gcc bin folder.
+ *
  * ----------------------------------------------------------------------
  *
  * HOW TO USE THIS LIBRARY
  *
  * ----------------------------------------------------------------------
  *
+ * Client code has to include arm_btrace.h and link to libbtrace.a
+ * If you get a linker error about undresolved symbol _etext  
+ * you can either export the symbol appropriately from 
+ * your linker script capturing location of end of text,
+ * or you can work around this by defining the symbol
+ * NO_ETEXT_IN_LINKER_SCRIPT while building libbtrace.a
+ * 
  * Two scenarios are described below.
  *
  * 1. Explicit call to btrace_callstack in an error path before
