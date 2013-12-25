@@ -271,7 +271,7 @@ static int walk_to_fn_start(bt_uint32_t** fn_start_pc_ptr,
 {
 	int status = 0;
 	/*while not push decrement pc and revert SP changes*/
-	while (IS_PUSH(**fn_start_pc_ptr))
+	while (!IS_PUSH(**fn_start_pc_ptr))
 	{/*push single or push multiple*/
 		status = process_instruction( **fn_start_pc_ptr,
 				                      fn_start_sp_ptr,

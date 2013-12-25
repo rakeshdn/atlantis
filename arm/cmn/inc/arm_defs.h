@@ -118,8 +118,8 @@ extern "C" {
 #define IS_PRE_INDEX(_opcode)       	 _IS_PART_EQUAL(_opcode, P_BIT, P_BIT) /* 1 = pre, 0 = post*/
 
 /*PUSH is an unconditional STR or STM using SP as index register with write back*/
-#define IS_PUSH(_opcode) ((((_opcode) & 0xFFFF0000) != 0xE92D0000) && \
-			              (((_opcode) & 0xFFFF0000) != 0xE52D0000) )
+#define IS_PUSH(_opcode) ((((_opcode) & 0xFFFF0000) == 0xE92D0000) || \
+			                 (((_opcode) & 0xFFFF0000) == 0xE52D0000) )
 
 
 #ifdef __cplusplus
