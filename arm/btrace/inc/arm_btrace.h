@@ -109,8 +109,8 @@ typedef int (*TracePrintFnPtr)(char* message);
 /*returns existing TracePrintFnPtr or NULL*/
 extern TracePrintFnPtr btrace_set_print_fn( TracePrintFnPtr print_fn, int maxFrames ) __attribute__ ((noinline));
 
-extern void exceptionHandlerReturnHook(void) __attribute__ ((naked));
-
+extern void exceptionHandlerReturnHook(void) __attribute__ ((naked)) __attribute__ ((used));
+extern void (*exceptionHandlerReturnHookPtr)(void) __attribute__ ((used));
 
 #ifdef __cplusplus
 } /*extern C */

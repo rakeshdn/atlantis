@@ -89,3 +89,5 @@ void exceptionHandlerReturnHook(void)/*this is a naked function*/
 	);
 }
 
+/*export a global function pointer for linking from assembly code*/
+void (*exceptionHandlerReturnHookPtr)(void) = exceptionHandlerReturnHook;

@@ -121,6 +121,15 @@ extern "C" {
 #define IS_PUSH(_opcode) ((((_opcode) & 0xFFFF0000) == 0xE92D0000) || \
 			                 (((_opcode) & 0xFFFF0000) == 0xE52D0000) )
 
+/*constants related to CPU mode.*/
+#define CPSR_MODE_MASK        0x0000001F
+#define CPSR_SYS_MODE         0x0000001F
+#define CPSR_IRQ_MODE         0x00000012
+#define CPSR_FIQ_MODE         0x00000011
+#define CPSR_UND_MODE         0x0000001B
+#define CPSR_ABT_MODE         0x00000017
+#define CPSR_IRQ_BIT          0x00000080
+#define CPSR_FIQ_BIT          0x00000040
 
 #ifdef __cplusplus
 } /*extern C */
