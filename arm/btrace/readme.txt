@@ -110,7 +110,7 @@
  *    To generate stack trace,
  *    Once exception handler decides to abort the process, it should
  *    set "Exception_Hook_LR" value as the final function (infinite loop)
- *    or reset vector, and then set its own return address to "exceptionHandlerReturnHook"
+ *    or reset vector, and then set its own return address to "exceptionHandlerReturnHookPtr"
  *    and then return from the handler.
  *    The print function is called once per frame being traced back.
  *    On completion of trace, exceptionHandlerReturnHook branches to
