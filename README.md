@@ -1,4 +1,4 @@
 atlantis
 ========
 
-Utility programs for embedded software debugging
+Utility programs and libraries for embedded software debugging
