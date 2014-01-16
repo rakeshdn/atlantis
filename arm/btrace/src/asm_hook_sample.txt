@@ -1,0 +1,42 @@
+@example snippet from .s file defining the exception handlers.
+
+
+    .section    abcd_code, "abcd"
+
+@-----------------------------
+@ LOCAL VARIABLE DECLARATIONS
+@-----------------------------    
+
+    .extern exceptionHandlerReturnHookPtr
+
+Label_exceptionHandlerReturnHook:
+    .long exceptionHandlerReturnHookPtr
+
+
+@static VOID    my_exception_handler(VOID)
+
+    .code 32 @ my_exception_handler
+    .extern Exception_LR
+    .extern Exception_Hook_LR
+    LABEL_Exception_LR:
+    .long Exception_LR
+    LABEL_Exception_Hook_LR:
+    .long Exception_Hook_LR
+my_exception_handler:
+
+    @ Save minimum context for exception
+
+    LDR r9, LABEL_Exception_Hook_LR
+    STR lr, [r9]
+    LDR r9, LABEL_Exception_LR
+    STR lr, [r9]
+
+    LDR lr, Label_exceptionHandlerReturnHook
+    LDR lr, [lr]
+
+
+	< your original exception handler code here >
+
+
+Overwrite Exception_Hook_LR during exception handling or exception hook processing 
+to avoid returning from exception hook.
